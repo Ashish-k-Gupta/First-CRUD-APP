@@ -9,8 +9,11 @@ update.addEventListener('click', _ => {
         method: 'put',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
-            name: 'Albert Camus',
-            quote: 'In the midst of winter, I found there was, within me, an invincible summer.'
+            name: ' ',
+            // name: 'Fyodor Dostoevsky',
+            quotes: ' g'
+            // quotes: 'Beauty will save the world.'
+            
         })
     })
 })
