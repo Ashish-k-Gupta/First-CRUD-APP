@@ -45,7 +45,7 @@ MongoClient.connect(connectionString, {useUnifiedTopology: true})
             {
                 $set: {
                     name: req.body.name,
-                    quotes: req.body.quotes
+                    quote: req.body.quotes
                 }
             },
             {
@@ -54,10 +54,25 @@ MongoClient.connect(connectionString, {useUnifiedTopology: true})
         )  
         .then(result =>{
             console.log(result)
+            res.json('success')
         })
         .catch(error => console.error(error))
     })
 
+
+    app.delete('/quotes', (req, res) => {
+        
+        quotesCollection.deleteOne(
+            {name: req.body.name}
+            )
+            
+        .then(result => {
+            res.json("Deleted Quote")
+        })
+        .catch(error => console.error(error))
+
+
+    })
     
 
     app.listen(3000, function(){
