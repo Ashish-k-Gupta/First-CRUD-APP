@@ -2,10 +2,13 @@
 
 // const { response } = require("express")
 
+// const { response } = require("express")
+
 
 
 const update = document.querySelector('#update-button')
 const deleteButton = document.querySelector('#delete-button')
+const messageDiv = document.querySelector('#message')
 
 
 
@@ -46,7 +49,11 @@ deleteButton.addEventListener('click', _ =>{
         if(res.ok) return res.json()
      })
     .then(data => {
-        window.location.reload()
+        if(data === 'No quote to delete'){
+            messageDiv.textContent = "There Are No More Quotes To Delete"
+        }else{
+            window.location.reload()
+        }
     })
 })
 

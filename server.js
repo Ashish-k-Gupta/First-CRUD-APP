@@ -67,6 +67,9 @@ MongoClient.connect(connectionString, {useUnifiedTopology: true})
             )
             
         .then(result => {
+            if(result.deletedCount === 0){
+                return res.json('No quote to delete')
+            }
             res.json("Deleted Quote")
         })
         .catch(error => console.error(error))
